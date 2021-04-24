@@ -1,0 +1,33 @@
+
+V	java:S125+"<This block of commented-out lines of code should be removed.(™—œþþÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(ƒ£ëýÿÿÿÿÿ
+G
+java:S16127",Replace this lambda with a method reference.(£š„ÿýÿÿÿÿ
+q
+java:S4276""[Refactor this code to use the more specialised Functional Interface 'ToIntFunction<String>'(öýû”
+S	java:S106$"9Replace this use of System.out or System.err by a logger.(‘óÄéÿÿÿÿÿ
+A
+java:S1144:"+Remove this unused private "print1" method.(£©úâ
+A
+java:S1144E"+Remove this unused private "print2" method.(Ã£ô•
+M
+java:S1611+"2Remove the parentheses around the "name" parameter(™—œþþÿÿÿÿ
+S	java:S106-"9Replace this use of System.out or System.err by a logger.(úÔçˆøÿÿÿÿ
+S	java:S106("9Replace this use of System.out or System.err by a logger.(ääÐÔúÿÿÿÿ
+P
+java:S1481"5Remove this unused "methodReferences" local variable.(¡ñŒúüÿÿÿÿ
+v
+java:S4276F"[Refactor this code to use the more specialised Functional Interface 'UnaryOperator<String>'(’¥ü üÿÿÿÿ
+@
+java:S11446"*Remove this unused private "print" method.(Ý†Žà
+M	java:S106 "9Replace this use of System.out or System.err by a logger.(§º”
+G
+java:S1612+",Replace this lambda with a method reference.(™—œþþÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(Ë„ü·úÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(õÛçË
+_
+java:S1854"DRemove this useless assignment to local variable "methodReferences".(¡ñŒúüÿÿÿÿ
+N	java:S106#"9Replace this use of System.out or System.err by a logger.(Öö×½
+S	java:S106,"9Replace this use of System.out or System.err by a logger.(ÀÞ¶Æûÿÿÿÿ
+œ
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ç€‡Øþÿÿÿÿ

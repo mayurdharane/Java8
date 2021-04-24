@@ -1,0 +1,34 @@
+
+Z
+java:S1197"8Move the array designator from the variable to the type.(Íïşãúÿÿÿÿ8çóä’¬.
+X	java:S125"<This block of commented-out lines of code should be removed.(ä²´˜8®­æ’¬.
+P	java:S125"<This block of commented-out lines of code should be removed.(®Å@
+\
+java:S1854":Remove this useless assignment to local variable "_years".(Íïşãúÿÿÿÿ8çóä’¬.
+G
+java:S1611"1Remove the parentheses around the "age" parameter(™†Îœ
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Íïşãúÿÿÿÿ8çóä’¬.
+M	java:S106)"9Replace this use of System.out or System.err by a logger.(…¤ãK
+r
+java:S4276"\Refactor this code to use the more specialised Functional Interface 'UnaryOperator<Integer>'(™‡ˆÌ
+M
+java:S1481"+Remove this unused "_years" local variable.(Íïşãúÿÿÿÿ8çóä’¬.
+B
+java:S1612",Replace this lambda with a method reference.(™†Îœ
+J
+java:S3740("/Provide the parametrized type for this generic.(ûíÔ¦ùÿÿÿÿ
+g
+java:S4276"QRefactor this code to use the more specialised Functional Interface 'IntConsumer'(™†Îœ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(™†Îœ
+n
+java:S1602("SRemove useless curly braces around statement and then remove useless return keyword(ûíÔ¦ùÿÿÿÿ
+E
+java:S1611"/Remove the parentheses around the "a" parameter(™‡ˆÌ
+U	java:S106"9Replace this use of System.out or System.err by a logger.( Ë¹Ì8¿¼ë’¬.
+A
+java:S1612)",Replace this lambda with a method reference.(…¤ãK
+L
+java:S1611("1Remove the parentheses around the "age" parameter(ûíÔ¦ùÿÿÿÿ
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(÷‘üøÿÿÿÿ8»æî’¬.
+i
+java:S1602"SRemove useless curly braces around statement and then remove useless return keyword(™‡ˆÌ
