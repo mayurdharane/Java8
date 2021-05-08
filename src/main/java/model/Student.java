@@ -7,7 +7,7 @@ import java.util.function.Function;
 import java.util.function.IntFunction;
 import java.util.function.Predicate;
 
-public class Student implements Adder{
+public class Student implements Adder {
 
     public Student() {
     }
@@ -29,8 +29,8 @@ public class Student implements Adder{
     @Override
     public void increaseAgeAndPrintName(List<Student> students, Predicate studentPredicate, Consumer consumer, IntFunction intFunction) { //, Function function
 
-        for (Student student: students) {
-            if(studentPredicate.test(student)){
+        for (Student student : students) {
+            if (studentPredicate.test(student)) {
                 consumer.accept(student);
                 student.setAge((Integer) intFunction.apply(student.age));
                 consumer.accept(student);

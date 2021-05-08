@@ -8,10 +8,10 @@ import java.util.function.Predicate;
 
 public interface Adder {
 
-     Integer increaseAge(Integer a, Function<Integer,Integer> f);
+    Integer increaseAge(Integer a, Function<Integer, Integer> f);
 
-     void increaseAgeAndPrintName(List<Student> students,
-                                  Predicate studentPredicate,
-                                  Consumer consumer,
-                                  IntFunction intFunction); //,Function function
+    void increaseAgeAndPrintName(List<Student> students,
+                                 Predicate studentPredicate,
+                                 Consumer consumer,
+                                 IntFunction intFunction); //,Function function
 }

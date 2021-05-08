@@ -12,7 +12,8 @@ import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-import static java.util.Comparator.*;
+import static java.util.Comparator.comparing;
+import static java.util.Comparator.comparingInt;
 import static java.util.stream.Collectors.*;
 
 public class StreamsPractice {
@@ -23,6 +24,7 @@ public class StreamsPractice {
         Trader mario = new Trader("Mario", "Milan");
         Trader alan = new Trader("Alan", "cambridge");
         Trader brian = new Trader("Brian", "cambridge");
+        Trader mayur = new Trader("Mayur", "Pune");
 
         List<Transaction> transactions = Arrays.asList(
                 new Transaction(brian, 2011, 300),
@@ -30,17 +32,57 @@ public class StreamsPractice {
                 new Transaction(rauol, 2011, 400),
                 new Transaction(mario, 2012, 710),
                 new Transaction(mario, 2012, 700),
-                new Transaction(alan, 2012, 950)
+                new Transaction(alan, 2012, 950),
+                new Transaction(mayur, 2010, 1500)
         );
+
+
+
+
+        String[] names1 = {"mayur","pranav","priya","avantika"};
+
+        long count1 = Arrays.stream(names1).map(s -> s.split(""))
+                .flatMap(Arrays::stream)
+                .count();
+        System.out.println(count1);
+
+
+        System.exit(-1);
+
+        List<Stream<String>> streamList = Arrays.stream(names1)
+                .map(w -> w.split(""))
+                .map(Arrays::stream)
+                .distinct()
+                .collect(toList());
+        System.out.println(streamList);
+
+        List<String> collect1 = Arrays.stream(names1)
+                .map(w -> w.split(""))
+                .flatMap(Arrays::stream)
+                .distinct()
+                .collect(toList());
+        System.out.println(collect1);
+
+
+
+        transactions.stream().distinct().map(t -> t.getTrader().getName()).map(String::length).collect(toList());
+
+
+        List<Integer> nameLength = transactions.stream().distinct().map(t -> t.getTrader().getName()).map(String::length).collect(toList());
+        System.out.println("nameLength"+nameLength);
+
+        transactions.stream().map(t -> t).distinct().skip(3).limit(3).forEach(t-> System.out.println(t.toString()));
+
+
+        transactions.stream().distinct().forEach(t -> System.out.println("--"+t.toString()));
 
 
         Map<Integer, List<Transaction>> transactionByYear = transactions.stream().collect(groupingBy(Transaction::getYear));
         System.out.println(transactionByYear);
 
+
         Map<Integer, Optional<Transaction>> map = transactions.stream().collect(groupingBy(Transaction::getYear, maxBy(comparingInt(Transaction::getValue))));
         System.out.println(map);
-
-        System.exit(0);
 
         Comparator<Transaction> transactionComparator = Comparator.comparing(Transaction::getValue);
 
@@ -65,8 +107,10 @@ public class StreamsPractice {
 //        System.out.println(count.size());
 
 
-
         //streams1(transactions);
+
+
+
 
     }
 
@@ -76,7 +120,7 @@ public class StreamsPractice {
         List<Transaction> list = transactions.stream().filter(transaction -> transaction.getYear() == 2011)
                 .collect(toList());
 
-        list.sort((o1, o2) -> o1.getValue()- o2.getValue());
+        list.sort((o1, o2) -> o1.getValue() - o2.getValue());
         System.out.println(list);
 
 
@@ -123,21 +167,21 @@ public class StreamsPractice {
         Optional<Transaction> min = transactions.stream().min(comparing(Transaction::getValue));
         System.out.println(min.get().getValue());
 
-        long uniqueWords =0;
-        try(Stream<String> lines= Files.lines(Paths.get("src/main/java/model/Test.txt"),Charset.defaultCharset())){
+        long uniqueWords = 0;
+        try (Stream<String> lines = Files.lines(Paths.get("src/main/java/model/Test.txt"), Charset.defaultCharset())) {
 
             uniqueWords = lines.flatMap(line -> Arrays.stream(line.split(" "))).distinct().count();
-            System.out.println("uniqueWords::"+uniqueWords);
+            System.out.println("uniqueWords::" + uniqueWords);
 
-        }catch (IOException e){
+        } catch (IOException e) {
         }
 
-        Stream.iterate(10,i -> i+10).limit(5).forEach(System.out::println);
+        Stream.iterate(10, i -> i + 10).limit(5).forEach(System.out::println);
 
 
         int[] a1 = {0, 1};
-        Stream.iterate(a1, arr -> new int[]{arr[1],arr[0]+arr[1]}).limit(10).forEach(arr -> {
-            System.out.println(arr[0]+","+arr[1]);
+        Stream.iterate(a1, arr -> new int[]{arr[1], arr[0] + arr[1]}).limit(10).forEach(arr -> {
+            System.out.println(arr[0] + "," + arr[1]);
         });
 
         Supplier<Car> carSupplier = Car::new;
