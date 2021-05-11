@@ -1,5 +1,8 @@
 package dateTimeApis;
 
+import org.springframework.core.convert.ConversionService;
+import org.springframework.core.convert.support.DefaultConversionService;
+
 import java.time.*;
 
 public class dateTimeApis {
@@ -30,9 +33,16 @@ public class dateTimeApis {
 
         System.out.println("atZoneSameInstant :"+berlinTimeOffsetToUTC.atZoneSameInstant(indiaTimeZone));
 
-        ZonedDateTime zonedDateTime = LocalDateTime.now().atZone(indiaTimeZone);
-        System.out.println("zonedDateTime :"+zonedDateTime);
-        System.out.println("zonedDateTime :"+zonedDateTime.withZoneSameInstant(berlinZone));
+        // what the time for a specific zone or offset is in our own timezone
+        ZonedDateTime indiaZonedDateTime = LocalDateTime.now().atZone(indiaTimeZone);
+        System.out.println("India zonedDateTime :"+indiaZonedDateTime);
+        ZonedDateTime berlinZonedDateTime1 = indiaZonedDateTime.withZoneSameInstant(berlinZone);
+        System.out.println("Berlin zonedDateTime :"+ berlinZonedDateTime1);
+
+
+        ConversionService conversionService = new DefaultConversionService();
+        LocalDateTime localDateTime1 = conversionService.convert(berlinZonedDateTime1, LocalDateTime.class);
+        System.out.println("localDateTime1 :"+localDateTime1);
 
 
         LocalDateTime localDateTime = LocalDateTime.from(berlinTimeOffsetToUTC);
