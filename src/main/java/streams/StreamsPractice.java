@@ -36,7 +36,14 @@ public class StreamsPractice {
                 new Transaction(mayur, 2010, 1500)
         );
 
+        Stream.iterate(new int[]{0,1},t -> new int[] {t[1],t[0]+t[1]})
+                .limit(10)
+                .map(t -> t[0])
+                .forEach(System.out::print);
+                //.forEach(t -> System.out.println("("+ t[0]+","+t[1] +")"));
 
+
+        transactions(transactions);
 
 
         String[] names1 = {"mayur","pranav","priya","avantika"};
@@ -112,6 +119,45 @@ public class StreamsPractice {
 
 
 
+    }
+
+    private static void transactions(List<Transaction> transactions) {
+        //transaction in 2011
+        System.out.println("transaction in 2011");
+        transactions.stream().filter(t -> t.getYear() == 2011).map(Transaction::getValue).sorted().forEach(System.out::println);
+
+        //Unique cities
+        System.out.println("Unique cities");
+        transactions.stream().map(t -> t.getTrader().getCity()).distinct().forEach(System.out::println);
+
+        //all traders from cambridge
+        System.out.println("all traders from cambridge");
+        transactions.stream().filter(t -> t.getTrader().getCity().equals("cambridge")).map(t -> t.getTrader().getName()).distinct().sorted().forEach(System.out::println);
+
+        //all traders
+        System.out.println("all traders");
+        String reduce = transactions.stream().map(t -> t.getTrader().getName()).distinct().sorted(String::compareTo).reduce("", (n1, n2) -> n1 + n2);
+        System.out.println("all traders : "+ reduce);
+
+        //any trader in milan
+        System.out.println("any trader in milan");
+        Optional<Transaction> milan = transactions.stream().filter(t -> t.getTrader().getCity().equals("Milan")).findAny();
+        boolean milan1 = transactions.stream().anyMatch(t -> t.getTrader().getCity().equals("Milan"));
+        System.out.println("any trader in milan : " + milan1);
+
+        //all transaction from cambridge
+        System.out.println("all transaction from cambridge");
+        transactions.stream().filter(t-> t.getTrader().getCity().equals("cambridge")).map(t-> t.getValue()).sorted().forEach(System.out::println);
+
+
+        //highest value of transaction
+        Optional<Integer> reduce1 = transactions.stream().map(t -> t.getValue()).reduce(Integer::max);
+        System.out.println("highest transaction : "+reduce1.get());
+
+
+        //min value of transaction
+        Optional<Integer> min = transactions.stream().map(t -> t.getValue()).reduce(Integer::min);
+        System.out.println("lowest transaction : "+min.get());
     }
 
     private static void streams1(List<Transaction> transactions) {
