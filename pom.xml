@@ -7,6 +7,7 @@
 
     <groupId>com.mayur.org</groupId>
     <artifactId>Java8</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
@@ -20,6 +21,9 @@
             </plugin>
         </plugins>
     </build>
+    <modules>
+        <module>JAVA11</module>
+    </modules>
 
     <dependencies>
         <dependency>
