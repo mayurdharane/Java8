@@ -36,6 +36,7 @@ public class LambadaRunner {
         Student s3 = new Student("C", 5);
         Student s4 = new Student("D", 8);
 
+        Predicate<Student> oldStudents = (Student s) -> s.getAge() >= 18;
         Predicate<Student> youngerStudents = (Student s) -> s.getAge() <= 5;
         IntFunction youngerToAdult = (age) -> {
             return age + 20;

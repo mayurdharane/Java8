@@ -138,6 +138,7 @@ public class StreamsPractice {
         System.out.println("all traders");
         String reduce = transactions.stream().map(t -> t.getTrader().getName()).distinct().sorted(String::compareTo).reduce("", (n1, n2) -> n1 + n2);
         System.out.println("all traders : "+ reduce);
+        Integer.parseInt()
 
         //any trader in milan
         System.out.println("any trader in milan");

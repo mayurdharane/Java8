@@ -23,6 +23,8 @@
     </build>
     <modules>
         <module>JAVA11</module>
+        <module>Regex</module>
+        <module>DesingPatterns</module>
     </modules>
 
     <dependencies>
